@@ -13,7 +13,7 @@ class ProductoCompraViewModel : ViewModel() {
 
     private val _productosDisponibles = MutableStateFlow<List<Producto>>(listOf(
         Producto(Producto.NombreProducto.CAFE, 10.0),
-        Producto(Producto.NombreProducto.TEA, 5.0)
+        Producto(Producto.NombreProducto.CACAO, 5.0)
     ))
     val productosDisponibles: StateFlow<List<Producto>> get() = _productosDisponibles
 
