@@ -49,10 +49,9 @@ fun AgregarProductoModal(
                 Text("Cancelar")
             }
         },
-        title = { Text("Agregar Producto") },
         text = {
             Column {
-                // ComboBox para seleccionar el producto
+                // ComboBox para el producto
                 ExposedDropdownMenuBox(
                     expanded = expandedProducto,
                     onExpandedChange = { expandedProducto = !expandedProducto }
@@ -67,7 +66,8 @@ fun AgregarProductoModal(
                                 expanded = expandedProducto
                             )
                         },
-                        colors = ExposedDropdownMenuDefaults.textFieldColors()
+                        colors = ExposedDropdownMenuDefaults.textFieldColors(),
+                        modifier = Modifier.menuAnchor()
                     )
                     ExposedDropdownMenu(
                         expanded = expandedProducto,
@@ -115,7 +115,8 @@ fun AgregarProductoModal(
                                 expanded = expandedUnidadMedida
                             )
                         },
-                        colors = ExposedDropdownMenuDefaults.textFieldColors()
+                        colors = ExposedDropdownMenuDefaults.textFieldColors(),
+                        modifier = Modifier.menuAnchor()
                     )
                     ExposedDropdownMenu(
                         expanded = expandedUnidadMedida,
@@ -152,7 +153,8 @@ fun AgregarProductoModal(
                                 expanded = expandedSecado
                             )
                         },
-                        colors = ExposedDropdownMenuDefaults.textFieldColors()
+                        colors = ExposedDropdownMenuDefaults.textFieldColors(),
+                        modifier = Modifier.menuAnchor()
                     )
                     ExposedDropdownMenu(
                         expanded = expandedSecado,

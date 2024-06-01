@@ -12,4 +12,10 @@ class ProductoViewModel : ViewModel() {
         Producto(Producto.NombreProducto.ACHIOTE, 0.00),
         Producto(Producto.NombreProducto.OTROS, 0.00)
     )
+    fun actualizarPrecio(nombreProducto: Producto.NombreProducto, nuevoPrecio: Double) {
+        val index = productos.indexOfFirst { it.nombreProducto == nombreProducto }
+        if (index != -1) {
+            productos[index] = productos[index].copy(precio = nuevoPrecio)
+        }
+    }
 }

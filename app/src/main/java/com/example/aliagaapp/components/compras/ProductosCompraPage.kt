@@ -20,20 +20,17 @@ import com.example.aliagaapp.components.productos.AgregarProductoModal
 import com.example.aliagaapp.model.Producto
 import com.example.aliagaapp.model.ProductoEnCompra
 import com.example.aliagaapp.viewmodel.ProductoCompraViewModel
+import com.example.aliagaapp.viewmodel.ProductoViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductosCompraPage(
     navController: NavController,
-    modifier: Modifier = Modifier
+    productViewModel: ProductoViewModel = viewModel()
 ) {
     val viewModel: ProductoCompraViewModel = viewModel()
     val productos by viewModel.productos.collectAsState()
-    val productosDisponibles = listOf(
-        // Aquí se deben agregar los productos disponibles. Esto puede venir del ViewModel u otro lugar
-        Producto(Producto.NombreProducto.CAFE, 10.0),
-        Producto(Producto.NombreProducto.CACAO, 5.0)
-    )
+    val productosDisponibles = productViewModel.productos
     var showModal by remember { mutableStateOf(false) }
     var productoSeleccionado by remember { mutableStateOf<ProductoEnCompra?>(null) }
 

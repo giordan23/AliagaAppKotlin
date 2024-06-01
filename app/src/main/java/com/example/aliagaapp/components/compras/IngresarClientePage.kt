@@ -48,17 +48,13 @@ fun IngresarClientePage(
                     .fillMaxWidth()
                     .padding(vertical = 8.dp)
                     .clickable {
-                        val encodedProducto = java.net.URLEncoder.encode(producto.nombreProducto.name, "UTF-8")
+                        val encodedProducto = producto.nombreProducto.name
                         navController.navigate("actualizarPrecio/$encodedProducto")
                     },
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(
-                    text = "${producto.nombreProducto.name} - S/. ${"%.2f".format(producto.precio)}",
-                    fontSize = 18.sp,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
+                Text(text = producto.nombreProducto.name, fontSize = 18.sp)
+                Text(text = "${producto.precio}", fontSize = 18.sp, fontWeight = FontWeight.Bold)
             }
             Divider(color = Color.Gray)
         }
@@ -104,7 +100,7 @@ fun IngresarClientePage(
 
         // Botón "Siguiente"
         Button(
-            onClick = { navController.navigate("productosCompra")             },
+            onClick = { navController.navigate("productosCompra") },
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
             modifier = Modifier
                 .fillMaxWidth()
